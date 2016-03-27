@@ -2,6 +2,8 @@
  * Code by: Humayun Kabir, humayun.k1@gmail.com */
 
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
 
@@ -66,27 +68,30 @@ int quickSelect(int* &inArr, int length, int k) {
 //Test the quickSort function
 int main() {
 
-	int *arr = new int[8];
-	int b[] = {10,4,12,87,23,223,0,2};
+        int length = 10;
+        int *arr = new int[length];
 
-	for(int i = 0; i < 8; i++)
-		arr[i] = b[i];
+        srand( time(NULL) );
 
-	cout<<"Input array: \n";
-	for(int i = 0; i < 8; i++)
-		cout<<arr[i]<<" ";
-	cout<<"\n";
-/*
-	sort(arr, 8);
+        cout<<"Input array: \n";
+        for(int i = 0; i < length; i++) {
+                //Generate a random number between 1 and 1000
+                arr[i] = rand() % 1000 + 1;
+                cout<<arr[i]<<" ";
+        }
+
+        cout<<"\n";
+
+        cout<<"3rd element is: \n";
+        cout<< quickSelect(arr, length, 3) << endl;                
+
+	sort(arr, length);
 
 	cout<<"Sorted array: \n";
-	for(int i = 0; i < 8; i++)
+	for(int i = 0; i < length; i++)
 		cout<<arr[i]<<" ";
-	cout<<"\n"; */
+	cout<<"\n"; 
 
-	cout<<"3rd element is: \n";
-	cout<< quickSelect(arr, 8, 3) << endl;
-	cout<< quickSelect(arr, 8, 4) << endl;
 	return 0;
 }
 
