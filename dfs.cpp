@@ -72,6 +72,11 @@ public:
 			path.add(x);
 		path.add(s);
 	}
+
+	~DFS() {
+		delete [] marked;
+		delete [] edgeTo;
+	}
 };
 
 
